@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'), url('/fonts/Roboto/Roboto-Regular.woff2') format('woff2'), url('/fonts/Roboto/Roboto-Regular.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+:root {
+    font-family: Roboto, Helvetica, Arial, sans-serif !important;
+    background-color: rgb(var(--v-theme-background));
+}
+
+/* Скрываем глобальный скролл */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Стиль для всплывающего сообщения */
+.snackbar {
+    color: rgb(var(--v-theme-on-primary)) !important;
+    background: rgb(var(--v-theme-error)) !important;
+}
+
+/* Стиль для кнопки */
+.v-btn {
+    &.primary-button {
+        background: rgb(var(--v-theme-primary));
+        color: rgb(var(--v-theme-on-primary));
+
+        &[disabled] {
+            background: rgb(var(--v-theme-primary));
+            color: rgb(var(--v-theme-on-primary));
+            opacity: 0.58;
+        }
+
+        &[cstm-height] {
+            height: $cstm-button-height;
+        }
+    }
+
+    &.secondary-button {
+        color: rgb(var(--v-theme-secondary));
+    }
+}
+
+/* Стиль для текстового блока с параметрами */
+.option-input {
+    width: $cstm-input-max-width;
+}
+
+/* Стиль для текстового блока поиска */
+.filter-input {
+    max-width: $cstm-input-max-width;
+    margin-left: auto;
+}

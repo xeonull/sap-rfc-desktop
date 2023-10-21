@@ -1,0 +1,23 @@
+  /* Стиль для верхнего бара с меню и общими настройками приложения */
+  .app-bar {
+      &__title {
+          color: rgb(var(--v-theme-on-primary));
+      }
+
+      &__tabs {
+          position: absolute;
+          left: 180px;
+          max-height: 70px;
+          color: rgb(var(--v-theme-on-primary));
+      }
+
+      &__img {
+          background: linear-gradient(to right, rgb(var(--v-theme-bg-head)), rgb(var(--v-theme-bg-head-lighten)));
+      }
+
+      &__system-select {
+          max-width: $cstm-input-min-width;
+          margin-right: 12px;
+          margin-top: 22px;
+      }
+  }
