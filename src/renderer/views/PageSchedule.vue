@@ -35,7 +35,8 @@
                   :items="planStatuses"
                   item-value="id"
                   item-text="title"
-                  v-model="planStatusesSelect"></v-select>
+                  v-model="planStatusesSelect"
+                ></v-select>
                 <v-btn
                   class="input-with-button-box__button primary-button"
                   cstm-height
@@ -56,7 +57,8 @@
                 single-line
                 hide-details
                 variant="outlined"
-                density="compact"></v-text-field>
+                density="compact"
+              ></v-text-field>
             </div>
           </div>
         </v-expansion-panel-text>
@@ -74,9 +76,9 @@ import { ref, watch, onMounted, computed } from 'vue';
 
 import DataTable from '@/components/DataTable.vue';
 
-import api from '@/web/api.js';
+import rfc from '@/ipc-api/RFC';
 import { store } from '@/store/store.js';
-import { useNotify } from '@/composable/useNotify.js';
+import { useNotify } from '@/composables/useNotify.js';
 
 const expansionPanel = ref(['tools']);
 
@@ -131,7 +133,7 @@ const loadPlanStatuses = async () => {
   snackbarShow.value = false;
   loadingList.value = true;
   try {
-    const res = await api.getPlanStatusList(store.systemHost);
+    const res = await rfc.getPlanStatusList(store.systemHost);
     planStatuses.value = Object.entries(res).map((e) => {
       return { id: e[0], title: e[1] };
     });
@@ -154,7 +156,7 @@ const loadSchedule = async () => {
   loadingTab.value = true;
   try {
     if (planStatusesSelect.value.length === 0) throw new Error('No schedule status is selected');
-    const content = await api.getSchedule(store.systemHost, planStatusesSelect.value);
+    const content = await rfc.getSchedule(store.systemHost, planStatusesSelect.value);
     if (content.table && content.fields) {
       normTable.value = content.table;
       normFields.value = content.fields;

@@ -154,7 +154,10 @@ watch(table_search, (val) => {
 
 /* Следим за изменением названия таблицы */
 watch(table_name, () => {
-  loadTableFields();
+  if (table_name.value) {
+    // console.log('tt', table_name.value);
+    loadTableFields();
+  }
 });
 
 const updateListView = (value) => {
@@ -213,6 +216,7 @@ const loadTableList = async () => {
   loadingList.value = true;
   try {
     const table = await rfc.getTableList(store.systemHost);
+    console.log('e:', table);
     if (table) tableList.value = table;
   } catch (err) {
     snackbarText.value = err.message;

@@ -32,7 +32,8 @@
                 variant="solo"
                 density="compact"
                 :items="environmentList"
-                v-model="environmentValue"></v-select>
+                v-model="environmentValue"
+              ></v-select>
 
               <v-select class="option-input" label="Model" variant="solo" density="compact" :items="modelList" v-model="modelValue"></v-select>
 
@@ -47,13 +48,15 @@
                   v-model="package_name"
                   v-model:search="package_search"
                   :items="packagesListApplShort"
-                  :loading="loadingFilter"></v-autocomplete>
+                  :loading="loadingFilter"
+                ></v-autocomplete>
                 <v-btn
                   class="input-with-button-box__button primary-button"
                   cstm-height
                   :disabled="!package_name"
                   @click="loadPackageTable"
-                  :loading="loadingTab">
+                  :loading="loadingTab"
+                >
                   Load package info
                 </v-btn>
               </div>
@@ -76,9 +79,9 @@ import { ref, watch, onMounted } from 'vue';
 
 import DataTable from '@/components/DataTable.vue';
 
-import api from '@/web/api.js';
+import rfc from '@/ipc-api/RFC';
 import { store } from '@/store/store.js';
-import { useNotify } from '@/composable/useNotify.js';
+import { useNotify } from '@/composables/useNotify.js';
 
 const expansionPanel = ref(['tools']);
 
@@ -169,7 +172,7 @@ const updateListView = (value) => {
 const loadPackageTable = async () => {
   loadingTab.value = true;
   try {
-    const content = await api.getPackage(store.systemHost, environmentValue.value, modelValue.value, package_name.value);
+    const content = await rfc.getPackage(store.systemHost, environmentValue.value, modelValue.value, package_name.value);
     if (content.table && content.fields) {
       normTable.value = content.table;
       normFields.value = content.fields;
@@ -189,7 +192,7 @@ const loadPackageList = async () => {
   snackbarShow.value = false;
   loadingList.value = true;
   try {
-    const content = await api.getPackageList(store.systemHost);
+    const content = await rfc.getPackageList(store.systemHost);
     if (content.table) {
       packagesList.value = content.table;
       environmentList.value = [...new Set(packagesList.value.map((e) => e.APPSET_ID))];

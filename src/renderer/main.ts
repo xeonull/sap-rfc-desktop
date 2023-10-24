@@ -1,8 +1,5 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-// import './samples/node-api'
-// import './rfc/useFile'
-
 // Styles
 import '@/styles/main.scss';
 import '@mdi/font/css/materialdesignicons.css';

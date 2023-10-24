@@ -4,6 +4,18 @@ const DEFAULT_MAX_ROWS = 1000000;
 const DEFAULT_DELIMETER = ';';
 
 export class SapBaseController {
+  throwRFCError(error) {
+    if (error) {
+      if (error.name === 'RfcLibError') {
+        const err = new Error(`SAP NW RFC Error`);
+        err.name = 'RFCLibError';
+        err.codeString = 'ERR_RFC';
+        throw err;
+      }
+    }
+    throw error;
+  }
+
   sendWithCode(content, res) {
     if (content && (content.name === 'ABAPError' || content.name === 'RfcLibError' || content.name === 'WebServerError')) {
       switch (content.key) {
