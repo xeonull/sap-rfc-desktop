@@ -39,10 +39,14 @@
                   v-model:search="table_search"
                   :items="tableListShort"
                   :loading="loadingFilter"
-                  :no-data-text="table_no_data_text"
-                ></v-autocomplete>
+                  :no-data-text="table_no_data_text"></v-autocomplete>
 
-                <v-btn class="input-with-button-box__button primary-button" cstm-height :disabled="!table_name" @click="loadTable" :loading="loadingTab">
+                <v-btn
+                  class="input-with-button-box__button primary-button"
+                  cstm-height
+                  :disabled="!table_name"
+                  @click="loadTable"
+                  :loading="loadingTab">
                   Load table
                 </v-btn>
               </div>
@@ -57,8 +61,7 @@
                 single-line
                 hide-details
                 variant="outlined"
-                density="compact"
-              ></v-text-field>
+                density="compact"></v-text-field>
             </div>
           </div>
           <div class="additional-btn">
@@ -66,8 +69,7 @@
               :icon="showFieldBox ? 'mdi-chevron-up' : 'mdi-chevron-down'"
               @click="showFieldBox = !showFieldBox"
               :disabled="!tableFieldList.length"
-              density="compact"
-            ></v-btn>
+              density="compact"></v-btn>
           </div>
           <v-expand-transition>
             <div v-show="showFieldBox" class="additional-box">
@@ -155,7 +157,6 @@ watch(table_search, (val) => {
 /* Следим за изменением названия таблицы */
 watch(table_name, () => {
   if (table_name.value) {
-    // console.log('tt', table_name.value);
     loadTableFields();
   }
 });
@@ -216,7 +217,6 @@ const loadTableList = async () => {
   loadingList.value = true;
   try {
     const table = await rfc.getTableList(store.systemHost);
-    console.log('e:', table);
     if (table) tableList.value = table;
   } catch (err) {
     snackbarText.value = err.message;

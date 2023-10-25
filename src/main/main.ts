@@ -42,7 +42,7 @@ const indexHtml = join(process.env.DIST, 'index.html');
 
 async function createWindow() {
   win = new BrowserWindow({
-    width: 1280,
+    width: 1680,
     height: 960,
     title: 'SAP RFC',
     icon: join(process.env.VITE_PUBLIC, 'icons/hexagon.png'),

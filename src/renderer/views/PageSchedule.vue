@@ -35,8 +35,7 @@
                   :items="planStatuses"
                   item-value="id"
                   item-text="title"
-                  v-model="planStatusesSelect"
-                ></v-select>
+                  v-model="planStatusesSelect"></v-select>
                 <v-btn
                   class="input-with-button-box__button primary-button"
                   cstm-height
@@ -57,8 +56,7 @@
                 single-line
                 hide-details
                 variant="outlined"
-                density="compact"
-              ></v-text-field>
+                density="compact"></v-text-field>
             </div>
           </div>
         </v-expansion-panel-text>

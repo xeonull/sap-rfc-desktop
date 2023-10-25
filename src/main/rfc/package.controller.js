@@ -22,7 +22,7 @@ class SapPackageController extends SapBaseController {
   /* Get table with package statuses*/
   getPackageStatuses = async (params) => {
     let host = params.host;
-    let packageName = params.package;
+    let packageName = params.package_name;
     let appset = params.appset;
     let appl = params.appl;
     let delimeter = params.delimeter;

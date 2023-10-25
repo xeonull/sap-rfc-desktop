@@ -31,8 +31,7 @@
                 variant="solo"
                 density="compact"
                 :items="environmentList"
-                v-model="environmentValue"
-              ></v-select>
+                v-model="environmentValue"></v-select>
               <div class="input-with-button-box">
                 <v-select
                   class="pinput-with-button-box__input option-input"
@@ -44,15 +43,13 @@
                   :items="docTypes"
                   item-value="id"
                   item-text="title"
-                  v-model="docTypesSelect"
-                >
+                  v-model="docTypesSelect">
                   <template v-slot:prepend-item>
                     <v-list-item title="Select All" @click="docTypesToggle">
                       <template v-slot:prepend>
                         <v-checkbox-btn
                           :indeterminate="docTypesSelect.length > 0 && docTypesSelect.length < docTypes.length"
-                          :model-value="docTypesSelect.length === docTypes.length"
-                        ></v-checkbox-btn>
+                          :model-value="docTypesSelect.length === docTypes.length"></v-checkbox-btn>
                       </template>
                     </v-list-item>
                     <v-divider class="mt-2"></v-divider>
@@ -63,8 +60,7 @@
                   cstm-height
                   :disabled="docTypesSelect.length === 0"
                   @click="loadDocuments"
-                  :loading="loadingTab"
-                >
+                  :loading="loadingTab">
                   Load Documents
                 </v-btn>
               </div>
@@ -79,8 +75,7 @@
                 single-line
                 hide-details
                 variant="outlined"
-                density="compact"
-              ></v-text-field>
+                density="compact"></v-text-field>
             </div>
           </div>
         </v-expansion-panel-text>
@@ -171,7 +166,11 @@ const loadEnvironments = async () => {
     environmentList.value = envList;
     // Оставляем предыдущее значение Среды, если оно уже было выбрано ранее и также есть в обновленном списке, иначе берем значение по умолчанию
     if (!environmentValue.value || environmentList.value.indexOf(environmentValue.value) === -1) {
-      environmentValue.value = environmentList.value?.length ? (environmentList.value.length > 2 ? environmentList.value[2] : environmentList.value[0]) : null;
+      environmentValue.value = environmentList.value?.length
+        ? environmentList.value.length > 2
+          ? environmentList.value[2]
+          : environmentList.value[0]
+        : null;
     }
   }
 };

@@ -32,8 +32,7 @@
                 variant="solo"
                 density="compact"
                 :items="environmentList"
-                v-model="environmentValue"
-              ></v-select>
+                v-model="environmentValue"></v-select>
 
               <v-select class="option-input" label="Model" variant="solo" density="compact" :items="modelList" v-model="modelValue"></v-select>
 
@@ -48,15 +47,13 @@
                   v-model="package_name"
                   v-model:search="package_search"
                   :items="packagesListApplShort"
-                  :loading="loadingFilter"
-                ></v-autocomplete>
+                  :loading="loadingFilter"></v-autocomplete>
                 <v-btn
                   class="input-with-button-box__button primary-button"
                   cstm-height
                   :disabled="!package_name"
                   @click="loadPackageTable"
-                  :loading="loadingTab"
-                >
+                  :loading="loadingTab">
                   Load package info
                 </v-btn>
               </div>

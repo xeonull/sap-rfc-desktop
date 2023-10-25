@@ -28,7 +28,7 @@ class SapTableController extends SapBaseController {
       params.host,
       'DD03L',
       ['FIELDNAME', 'POSITION', 'LENG'],
-      [`TABNAME EQ '${tab}'`],
+      [`TABNAME EQ '${params.tab}'`],
       params.delimeter,
       params.max_rows
     );

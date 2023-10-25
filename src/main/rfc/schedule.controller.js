@@ -55,11 +55,19 @@ class SapScheduleController extends SapBaseController {
     });
     if (schedule_filter.length === 0) schedule_filter.push(`SCHEDULE_ID IN ('')`);
 
-    return await this.pullTableData(params.host, 'UJ0_SCHEDULE', ['SCHEDULE_ID', 'SCHEDULE_INFO'], schedule_filter, params.delimeter, params.max_rows);
+    return await this.pullTableData(
+      params.host,
+      'UJ0_SCHEDULE',
+      ['SCHEDULE_ID', 'SCHEDULE_INFO'],
+      schedule_filter,
+      params.delimeter,
+      params.max_rows
+    );
   };
 
   /* Get table with planning packages*/
   getSchedule = async (params) => {
+    // return { table: null, fields: null };
     // Получаем данные из таблицы UJ0_PLAN для статусов PLAN_STATUS = 0 и 1
     let content = await this.pullPlan(params);
 
