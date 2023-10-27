@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
   "appId": "sap-rfc-app",
   "asar": true,
-  "productName": "sap-rfc-app",
+  "productName": "sap-rfc",
   "directories": {
     "output": "release/${version}"
   },
@@ -14,7 +14,7 @@
   "win": {
     "target": "nsis",
     "artifactName": "${productName}-Windows-${version}-Setup.${ext}",
-    "icon": "dist/icons/hwin.ico"
+    "icon": "dist/icons/hex_white.ico"
   },
   "nsis": {
     "oneClick": false,

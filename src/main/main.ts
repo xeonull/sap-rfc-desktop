@@ -45,7 +45,7 @@ async function createWindow() {
     width: 1680,
     height: 960,
     title: 'SAP RFC',
-    icon: join(process.env.VITE_PUBLIC, 'icons/hexagon.png'),
+    icon: join(process.env.VITE_PUBLIC, 'icons/hex_white.ico'),
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
