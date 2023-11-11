@@ -14,7 +14,9 @@
     "noEmit": true,
     "allowJs": true,
     "baseUrl": ".",
-    "paths": { "@/*": ["src/renderer/*"] }
+    "paths": { "@/*": ["src/renderer/*"] },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
