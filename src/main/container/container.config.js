@@ -1,15 +1,15 @@
-import 'reflect-metadata';
-import { container } from 'tsyringe';
-import { TYPES } from './types.js';
+import { TOKENS } from './types.js';
 // import { IRFCService } from "@/types/Service.interface";
-import noderfc from '../rfc/services/node-rfc.js';
-
+import { Container } from 'brandi';
+import noderfc from 'node-rfc';
 // container.register<IRFCService>(TYPES.RFC_SERVICE, {
 //   useClass: SAPRFCService,
 // });
 
-container.register(TYPES.RFC_SERVICE, {
-  useClass: noderfc,
-});
+const container = new Container();
+container
+  .bind(TOKENS.RFC_SERVICE)
+  .toInstance(noderfc.Client) /* ← Binds the token to an instance */
+  .inTransientScope(); /*    ← in transient scope. */
 
 export { container };

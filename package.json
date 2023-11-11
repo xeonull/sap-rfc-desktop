@@ -17,10 +17,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "brandi": "^5.0.0",
     "fast-xml-parser": "^4.3.2",
     "node-rfc": "^3.3.0",
-    "reflect-metadata": "^0.1.13",
-    "tsyringe": "^4.8.0",
     "vue": "^3.3.6",
     "vuetify": "^3.3.22"
   },

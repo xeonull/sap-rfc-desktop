@@ -1,3 +1,5 @@
-export const TYPES = {
-  RFC_SERVICE: Symbol.for("RFCService"),
+import { token } from 'brandi';
+
+export const TOKENS = {
+  RFC_SERVICE: token('RFC_SERVICE'),
 };
