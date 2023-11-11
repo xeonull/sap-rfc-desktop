@@ -1,9 +1,12 @@
 import noderfc from 'node-rfc';
 
-@injectable()
 export class NodeRFC {
-  noderfc
-  constructor(options){
-    noderfc = new noderfc.Client(options);
+  client;
+  async open(options) {
+    this.client = new noderfc.Client(options);
+    await this.client.open();
+  }
+  async call(tab, opt) {
+    return await this.client.call(tab, opt);
   }
 }
