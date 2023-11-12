@@ -58,7 +58,7 @@
                 <v-btn
                   class="input-with-button-box__button primary-button"
                   cstm-height
-                  :disabled="docTypesSelect.length === 0"
+                  :disabled="docTypesSelect.length === 0 || !environmentValue"
                   @click="loadDocuments"
                   :loading="loadingTab">
                   Load Documents

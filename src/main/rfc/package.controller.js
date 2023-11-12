@@ -31,7 +31,7 @@ class SapPackageController extends SapBaseController {
       host,
       'UJD_STATUS',
       ['USER_ID', 'STATUS', 'TIMESTAMP', 'TIMESTAMP_END', 'PACKAGE_ID'],
-      ["PACKAGE_ID EQ '" + packageName + "' ", "AND APPLICATION_ID EQ '" + appl + "'", "AND APPSET_ID EQ '" + appset + "'"],
+      ["PACKAGE_ID EQ '" + packageName + "'", "AND APPLICATION_ID EQ '" + appl + "'", "AND APPSET_ID EQ '" + appset + "'"],
       delimeter,
       max_rows
     );

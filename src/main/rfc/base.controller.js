@@ -51,7 +51,7 @@ export class SapBaseController {
       max_rows
     );
     const o = {};
-    content.ET_DATA.forEach((row) => {
+    content?.ET_DATA.forEach((row) => {
       const line = row.LINE.split(content.DELIMITER);
       if (line && line[0] && line[1]) o[line[1]] = line[0];
     });

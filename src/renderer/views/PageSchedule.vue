@@ -136,7 +136,7 @@ const loadPlanStatuses = async () => {
       return { id: e[0], title: e[1] };
     });
     // В качестве начальных значений ставим 0 и 1 статус
-    if (planStatusesSelect.value.length === 0) {
+    if (planStatusesSelect.value.length === 0 && planStatuses.value && planStatuses.value.length > 1) {
       planStatusesSelect.value.push(planStatuses.value[0].id);
       planStatusesSelect.value.push(planStatuses.value[1].id);
     }
