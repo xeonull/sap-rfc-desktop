@@ -36,6 +36,27 @@
 
               <v-select class="option-input" label="Model" variant="solo" density="compact" :items="modelList" v-model="modelValue"></v-select>
 
+              <v-btn-group class="grp option-input" multiple rounded="100">
+                <v-combobox
+                  v-model="timeValue"
+                  label="Time before"
+                  :items="[timeValueAll]"
+                  placeholder="Input number..."
+                  variant="solo"
+                  :rules="[ruleTimeValue]"
+                  density="compact"></v-combobox>
+                <v-btn title="Select" value="left" variant="tonal" height="47">
+                  {{ timePeriodSelected?.title }}
+                  <v-menu activator="parent">
+                    <v-list>
+                      <v-list-item v-for="item in timePeriods" :key="item.id" :value="item.id">
+                        <v-list-item-title @click="timePeriodSelected = item">{{ item.title }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </v-btn>
+              </v-btn-group>
+
               <div class="input-with-button-box">
                 <v-autocomplete
                   class="option-input"
@@ -51,7 +72,7 @@
                 <v-btn
                   class="input-with-button-box__button primary-button"
                   cstm-height
-                  :disabled="!package_name"
+                  :disabled="!package_name || timeValueErr"
                   @click="loadPackageTable"
                   :loading="loadingTab">
                   Load package info
@@ -80,6 +101,8 @@ import rfc from '@/ipc-api/RFC';
 import { store } from '@/store/store.js';
 import { useNotify } from '@/composables/useNotify.js';
 
+const { snackbarShow, snackbarText } = useNotify();
+
 const expansionPanel = ref(['tools']);
 
 const loadingList = ref(false);
@@ -101,7 +124,26 @@ const modelValue = ref(null);
 const package_name = ref('');
 const package_search = ref(null);
 
-const { snackbarShow, snackbarText } = useNotify();
+const timePeriods = ref([
+  { id: 'd', title: 'Days' },
+  { id: 'w', title: 'Weeks' },
+  { id: 'm', title: 'Months' },
+  { id: 'y', title: 'Years' },
+]);
+const timePeriodSelected = ref(timePeriods.value[0]);
+const timeValue = ref(1);
+const timeValueAll = 'All times';
+const timeValueErr = ref(false);
+
+const ruleTimeValue = (value) => {
+  if ((Number.isInteger(+value) && +value > 0) || value === timeValueAll) {
+    timeValueErr.value = false;
+    return true;
+  } else {
+    timeValueErr.value = true;
+    return 'Positive integer value required';
+  }
+};
 
 const updateModelList = () => {
   modelList.value = packagesList.value
@@ -223,4 +265,8 @@ const loadPackageList = async () => {
 onMounted(loadPackageList);
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.grp {
+  padding-bottom: 72px;
+}
+</style>
