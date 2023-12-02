@@ -82,7 +82,7 @@ class SapDocumentController extends SapBaseController {
     // Список полей из запроса, которые не требуются в конечной таблицы:
     const fields_del = ['CREATE_DATE', 'CREATE_TIME', 'LSTMOD_DATE', 'LSTMOD_TIME'];
 
-    table.forEach((row) => {
+    table?.forEach((row) => {
       // Корректируем формат дат:
       row.CREATE_DATE_TIME = UTC_to_local(row.CREATE_DATE, row.CREATE_TIME);
       row.LSTMOD_DATE_TIME = UTC_to_local(row.LSTMOD_DATE, row.LSTMOD_TIME);

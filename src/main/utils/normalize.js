@@ -2,7 +2,7 @@
 export function normalizeSapTableList(rawList) {
   const list = [];
 
-  rawList.ET_DATA.forEach((line) => {
+  rawList?.ET_DATA.forEach((line) => {
     list.push(line.LINE);
   });
 

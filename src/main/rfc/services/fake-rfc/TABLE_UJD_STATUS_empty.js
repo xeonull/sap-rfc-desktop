@@ -1,0 +1,48 @@
+export default {
+  ET_DATA: [],
+  DELIMITER: ';',
+  GET_SORTED: '',
+  NO_DATA: '',
+  QUERY_TABLE: 'UJD_STATUS',
+  ROWCOUNT: 10000,
+  ROWSKIPS: 0,
+  USE_ET_DATA_4_RETURN: 'X',
+  FIELDS: [
+    {
+      FIELDNAME: 'USER_ID',
+      OFFSET: '000000',
+      LENGTH: '000060',
+      TYPE: 'C',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'STATUS',
+      OFFSET: '000061',
+      LENGTH: '000001',
+      TYPE: 'C',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'TIMESTAMP',
+      OFFSET: '000063',
+      LENGTH: '000015',
+      TYPE: 'P',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'TIMESTAMP_END',
+      OFFSET: '000080',
+      LENGTH: '000015',
+      TYPE: 'P',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'PACKAGE_ID',
+      OFFSET: '000097',
+      LENGTH: '000050',
+      TYPE: 'C',
+      FIELDTEXT: '',
+    },
+  ],
+  OPTIONS: [{ TEXT: "PACKAGE_ID EQ ''" }, { TEXT: "AND APPLICATION_ID EQ ''" }, { TEXT: "AND APPSET_ID EQ ''" }],
+};

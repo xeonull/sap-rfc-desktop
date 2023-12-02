@@ -1,84 +1,84 @@
 /* Основные отступы страницы */
 .page {
-    margin: 0 8px 0 8px;
+  margin: 0 8px 0 8px;
 
-    &__block {
-        margin: 8px 0 8px 0;
-    }
+  &__block {
+    margin: 8px 0 8px 0;
+  }
 }
 
 /* Стиль для текстовой подсказки, которая отбражается, когда панель с настройками свернута */
 .text-tip {
-    color: rgba(var(--v-theme-secondary), 0.7);
-    white-space: nowrap;
+  color: rgba(var(--v-theme-secondary), 0.7);
+  white-space: nowrap;
 
-    &__item:not(:last-child) {
-        margin-right: 20px;
-    }
+  &__item:not(:last-child) {
+    margin-right: 20px;
+  }
 
-    &__label {
-        filter: brightness(80%);
-    }
+  &__label {
+    filter: brightness(80%);
+  }
 }
 
 /* Стиль панели инструментов */
 .tool-pane {
-    &__title {
-        min-height: $cstm-expansion-panel-title-min-height !important;
-    }
+  &__title {
+    min-height: $cstm-expansion-panel-title-min-height !important;
+  }
 
-    &__content {
-        padding-top: 8px;
-    }
+  &__content {
+    padding-top: 8px;
+  }
 }
 
 /* Стиль блока с текстовым полем и кнопкой */
 .input-with-button-box {
-    display: flex;
+  display: flex;
 
-    &__button {
-        margin: 4px 0 24px 20px;
-        align-self: flex-end;
-    }
+  &__button {
+    margin: 4px 0 24px 20px;
+    align-self: flex-end;
+  }
 }
 
 /* Стиль основного блока панели инструментов */
 .general-box {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    &__right {
-        max-width: 600px;
-        flex-grow: 2;
-        margin-left: 16px;
-        margin-top: 2px;
-    }
+  &__right {
+    max-width: 600px;
+    flex-grow: 2;
+    margin-left: 16px;
+    margin-top: 2px;
+  }
 }
 
 /* Стиль дополнительного блока панели инструментов */
 .additional {
-    &-btn {
-        display: flex;
-        justify-content: center;
+  &-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+
+    &__left {
+      padding: 5px 0 0 0;
+      width: calc($cstm-input-max-width + 145px);
     }
 
-    &-box {
-        display: flex;
-        align-items: flex-start;
-        justify-content: start;
-
-        &__left {
-            padding: 5px 0 0 0;
-            width: calc($cstm-input-max-width + 145px);
-        }
-
-        &__right {
-            padding: 10px 0 0 10px;
-        }
-
-        &__info-text {
-            color: rgb(var(--v-theme-on-primary));
-            font-weight: lighter;
-        }
+    &__right {
+      padding: 10px 0 0 10px;
     }
+
+    &__info-text {
+      color: rgb(var(--v-theme-on-primary));
+      font-weight: lighter;
+    }
+  }
 }

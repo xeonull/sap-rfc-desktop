@@ -1,0 +1,57 @@
+export default {
+  ET_DATA: [
+    { LINE: 'SAP_USER;1;20.221.215.105.538;20.221.215.121.122;Account Transformation' },
+    { LINE: 'SAP_USER;1;20.221.216.150.936;20.221.216.150.939;Account Transformation' },
+    { LINE: 'SAP_USER;1;20.221.216.151.326;20.221.216.151.329;Account Transformation' },
+    { LINE: 'SAP_USER;1;20.221.216.151.822;20.221.216.151.824;Account Transformation' },
+  ],
+  DELIMITER: ';',
+  GET_SORTED: '',
+  NO_DATA: '',
+  QUERY_TABLE: 'UJD_STATUS',
+  ROWCOUNT: 10000,
+  ROWSKIPS: 0,
+  USE_ET_DATA_4_RETURN: 'X',
+  FIELDS: [
+    {
+      FIELDNAME: 'USER_ID',
+      OFFSET: '000000',
+      LENGTH: '000060',
+      TYPE: 'C',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'STATUS',
+      OFFSET: '000061',
+      LENGTH: '000001',
+      TYPE: 'C',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'TIMESTAMP',
+      OFFSET: '000063',
+      LENGTH: '000015',
+      TYPE: 'P',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'TIMESTAMP_END',
+      OFFSET: '000080',
+      LENGTH: '000015',
+      TYPE: 'P',
+      FIELDTEXT: '',
+    },
+    {
+      FIELDNAME: 'PACKAGE_ID',
+      OFFSET: '000097',
+      LENGTH: '000050',
+      TYPE: 'C',
+      FIELDTEXT: '',
+    },
+  ],
+  OPTIONS: [
+    { TEXT: "PACKAGE_ID EQ 'Account Transformation'" },
+    { TEXT: "AND APPLICATION_ID EQ 'Consolidation'" },
+    { TEXT: "AND APPSET_ID EQ 'ENVIRONMENTSHELL'" },
+  ],
+};

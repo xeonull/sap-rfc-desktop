@@ -1,4 +1,5 @@
-import noderfc from 'node-rfc';
+// import noderfc from 'node-rfc';
+import { rfcWebService } from "../container";
 
 const DEFAULT_MAX_ROWS = 1000000;
 const DEFAULT_DELIMETER = ';';
@@ -50,7 +51,7 @@ export class SapBaseController {
       max_rows
     );
     const o = {};
-    content.ET_DATA.forEach((row) => {
+    content?.ET_DATA.forEach((row) => {
       const line = row.LINE.split(content.DELIMITER);
       if (line && line[0] && line[1]) o[line[1]] = line[0];
     });
@@ -59,10 +60,10 @@ export class SapBaseController {
   }
 
   async pullTableData(system_host, table_name, headers = [], filter = [], delimeter = DEFAULT_DELIMETER, max_rows = DEFAULT_MAX_ROWS) {
-    const client = new noderfc.Client({ DEST: system_host });
+    // const client = new noderfc.Client({ DEST: system_host });
     max_rows = parseInt(max_rows);
 
-    await client.open();
+    await rfcWebService.open({ DEST: system_host });
 
     const rowskips = 0;
     const options = [];
@@ -78,7 +79,7 @@ export class SapBaseController {
         fields.push({ FIELDNAME: f });
       });
 
-    const result = await client.call('RFC_READ_TABLE', {
+    const result = await rfcWebService.call('RFC_READ_TABLE', {
       QUERY_TABLE: table_name,
       OPTIONS: options,
       USE_ET_DATA_4_RETURN: 'X',

@@ -8,7 +8,8 @@
   "private": true,
   "debug": {
     "env": {
-      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344/"
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344/",
+      "FAKE_RFC_SERVICE": true
     }
   },
   "scripts": {
@@ -17,6 +18,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "brandi": "^5.0.0",
     "fast-xml-parser": "^4.3.2",
     "node-rfc": "^3.3.0",
     "vue": "^3.3.6",
